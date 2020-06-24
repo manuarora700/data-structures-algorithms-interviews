@@ -1,0 +1,1 @@
+Simply return number % 10 to print the remainder.

@@ -1,0 +1,1 @@
+By using the formula quant*cost - (quant*cost)*(20.0/100.0); where 20 is the discount we calculate the discounted price and print it.

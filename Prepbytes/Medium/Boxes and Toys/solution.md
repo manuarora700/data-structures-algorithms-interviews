@@ -1,0 +1,1 @@
+We simply check if capacity - present is greater than 2, If yes then increment the count
