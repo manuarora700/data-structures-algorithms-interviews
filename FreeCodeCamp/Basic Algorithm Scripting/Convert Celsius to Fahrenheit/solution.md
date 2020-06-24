@@ -1,0 +1,1 @@
+Use the formula celsius * ( 9 / 5 ) + 32; to convert to hahrenheit
