@@ -1,0 +1,1 @@
+Simple, use typeof operator
