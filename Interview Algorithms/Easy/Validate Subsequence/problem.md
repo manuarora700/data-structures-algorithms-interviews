@@ -1,0 +1,1 @@
+Given an array and a subsequence, Find whether the subsequence belongs to the array.
