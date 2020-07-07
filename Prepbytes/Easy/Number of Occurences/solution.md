@@ -1,0 +1,1 @@
+Iterate through the array and count the number of x's.
