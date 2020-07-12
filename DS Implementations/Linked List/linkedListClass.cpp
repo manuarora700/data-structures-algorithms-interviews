@@ -76,6 +76,67 @@ public:
       temp->next = newNode;
     }
   }
+
+  void deleteAtBeg()
+  {
+    SllNode *temp = head;
+    if (temp == nullptr)
+    {
+      std::cout << "LL is empty";
+      return;
+    }
+
+    head = head->next;
+    free(temp);
+  }
+  void deleteAtEnd()
+  {
+    SllNode *temp = head;
+    if (temp == nullptr)
+    {
+      std::cout << "LL is empty";
+      return;
+    }
+    if (temp->next == nullptr)
+    {
+      head = NULL;
+      free(temp);
+      return;
+    }
+    while (temp->next->next != nullptr)
+    {
+      temp = temp - next;
+    }
+
+    SllNode *temp1 = temp->next;
+    temp->next = null;
+    free(temp1);
+  }
+  void deleteAtPos(int pos)
+  {
+    SllNode *temp = head;
+    if (temp == nullptr)
+    {
+      std::cout << "LL is empty";
+      return;
+    }
+    if (temp->next == nullptr)
+    {
+      head = NULL;
+      free(temp);
+      return;
+    }
+
+    int count = 1;
+    while (count < pos - 1)
+    {
+      temp = temp->next;
+    }
+    SllNode *temp1 = temp->next;
+    temp->next = temp1->next;
+    temp1->next = nullptr;
+    free(temp1);
+  }
 };
 
 void display(SllNode *head)
