@@ -81,6 +81,73 @@ void display()
   }
 }
 
+void deleteAtBeg()
+{
+  Node *temp = head;
+
+  if (temp == NULL)
+  {
+    std::cout << "LL is empty bruh!";
+    return;
+  }
+
+  head = head->next;
+  free(temp);
+}
+
+void deleteAtEnd()
+{
+  Node *temp = head;
+  if (temp == NULL)
+  {
+    std::cout << "LL is empty";
+    return;
+  }
+  if (temp->next == NULL)
+  {
+    head = NULL;
+    free(temp);
+    return;
+  }
+  while (temp->next->next != NULL)
+  {
+    temp = temp->next;
+  }
+
+  Node *temp1 = temp->next;
+  temp->next = NULL;
+  free(temp1);
+}
+
+void deleteAtPos(int pos)
+{
+  Node *temp = head;
+
+  if (temp == NULL)
+  {
+    std::cout << "LL is empty";
+    return;
+  }
+  if (temp->next == NULL)
+  {
+    head = NULL;
+    free(temp);
+    return;
+  }
+
+  int count = 1;
+  while (count < pos - 1)
+  {
+    count++;
+    temp = temp->next;
+  }
+
+  Node *temp1 = temp->next;
+  temp->next = temp1->next;
+  temp1->next = NULL;
+  free(temp1);
+}
+
 int main()
 {
   int t;
