@@ -10,7 +10,7 @@ struct node
 main()
 {
   // initialize Linked List
-  struct node *head = null;
+  struct node *head = NULL;
 
   // Create list function to create linked list
   head = create_list(head);
@@ -37,10 +37,10 @@ struct node *create_list(struct node *head)
 
     // Begin inserting Data
     newNode->data = i;
-    newNode->next = null;
+    newNode->next = NULL;
 
     // if its the first insertion then point head and tail to newnode
-    if (head == null)
+    if (head == NULL)
     {
       head = newNode;
       tail = newNode;
