@@ -83,6 +83,74 @@ void insertAtPos(int data, int pos)
   temp->next = newNode;
 }
 
+void deleteAtBeg()
+{
+  Node *temp = head;
+  if (temp == NULL)
+    return;
+  head = head->next;
+  tail->next = head;
+  temp->next = NULL;
+  free(temp);
+}
+void deleteAtEnd()
+{
+  Node *temp = head;
+  if (temp == NULL)
+    return;
+
+  if (temp->next == NULL)
+  {
+    head = NULL;
+    tail = NULL;
+    free(temp);
+    return;
+  }
+  while (temp->next->next != head)
+  {
+    temp = temp->next;
+  }
+
+  Node *temp1 = tail;
+  temp->next = head;
+  temp1->next = NULL;
+  tail = temp;
+  free(temp1);
+}
+void deleteAtPos(int pos)
+{
+  Node *temp = head;
+  if (temp == NULL)
+    return;
+
+  if (temp->next == NULL)
+  {
+    head = NULL;
+    tail = NULL;
+    free(temp);
+    return;
+  }
+
+  int count = 1;
+  while (count < pos - 1 && temp->next != head)
+  {
+    count++;
+    temp = temp->next;
+  }
+  if (temp->next == head)
+  {
+    Node *temp1 = tail;
+    temp->next = head;
+    tail = temp;
+    free(temp1);
+  }
+
+  Node *temp1 = temp->next;
+  temp->next = temp1->next;
+  temp1->next = NULL;
+  free(temp1);
+}
+
 void display()
 {
   Node *temp;
