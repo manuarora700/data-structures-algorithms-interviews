@@ -13,8 +13,8 @@ Node *tail = NULL;
 
 void insertAtBeg(int data)
 {
-  Node *newNode = (Node *)malloc(sizeof(Node))
-                      newNode->data = data;
+  Node *newNode = (Node *)malloc(sizeof(Node));
+  newNode->data = data;
   newNode->next = NULL;
 
   if (head == NULL)
@@ -30,8 +30,8 @@ void insertAtBeg(int data)
 }
 void insertAtEnd(int data)
 {
-  Node *newNode = (Node *)malloc(sizeof(Node))
-                      newNode->data = data;
+  Node *newNode = (Node *)malloc(sizeof(Node));
+  newNode->data = data;
   newNode->next = NULL;
 
   if (head == NULL)
@@ -46,8 +46,8 @@ void insertAtEnd(int data)
 }
 void insertAtPos(int data, int pos)
 {
-  Node *newNode = (Node *)malloc(sizeof(Node))
-                      newNode->data = data;
+  Node *newNode = (Node *)malloc(sizeof(Node));
+  newNode->data = data;
   newNode->next = NULL;
 
   if (head == NULL)
