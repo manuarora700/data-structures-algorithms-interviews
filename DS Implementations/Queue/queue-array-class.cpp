@@ -42,6 +42,19 @@ public:
     size++;
   }
 
+  int dequeue()
+  {
+    if (isEmpty())
+    {
+      cout << "Empty\n";
+      return INT_MIN;
+    }
+    int data = arr[front];
+    front = (front + 1) % capacity;
+    size--;
+    return data;
+  }
+
   int frontEle()
   {
     if (isEmpty())
@@ -82,11 +95,13 @@ int main()
     cin >> ele;
     queue.enqueue(ele);
   }
-
-  cout << queue.frontEle();
-  cout << "\n";
-  cout << queue.rearEle();
-  cout << "\n";
-
   queue.display();
+
+  cout << queue.dequeue() << "\n";
+  cout << "Front element = " << queue.frontEle() << "\n";
+  cout << queue.dequeue() << "\n";
+  cout << "Front element = " << queue.frontEle() << "\n";
+  queue.enqueue(100);
+  queue.display();
+  cout << "Rear element = " << queue.rearEle() << "\n";
 }
