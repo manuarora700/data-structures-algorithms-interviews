@@ -49,6 +49,31 @@ public:
       cout << node->data;
     }
   }
+
+  void levelordertraversal(Node *node)
+  {
+    if (node == NULL)
+    {
+      return;
+    }
+    queue<Node *> qnode; // STL queue
+    qnode.push(node);
+
+    while (!qnode.empty())
+    {
+      Node *temp = qnode.front();
+      qnode.pop();
+      cout << temp->data << " ";
+      if (temp->left != NULL)
+      {
+        qnode.push(temp->left);
+      }
+      if (temp->right != NULL)
+      {
+        qnode.push(temp->right);
+      }
+    }
+  }
 };
 
 int main()
@@ -72,4 +97,7 @@ int main()
 
   cout << "postorder traversal is = \n";
   bt.postOrderTraversal(root);
+
+  cout << "Level order traversal is = \n";
+  bt.levelordertraversal(root);
 }

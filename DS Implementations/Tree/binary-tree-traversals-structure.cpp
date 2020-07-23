@@ -51,6 +51,50 @@ void postOrderTraversal(Node *node)
   }
 }
 
+void levelordertraversal(Node *node)
+{
+  if (node == NULL)
+  {
+    return;
+  }
+  queue<Node *> qnode; // STL queue
+  qnode.push(node);
+
+  while (!qnode.empty())
+  {
+    Node *temp = qnode.front();
+    qnode.pop();
+    cout << temp->data << " ";
+    if (temp->left != NULL)
+    {
+      qnode.push(temp->left);
+    }
+    if (temp->right != NULL)
+    {
+      qnode.push(temp->right);
+    }
+  }
+}
+
+int maxHeight(Node *node)
+{
+  if (node == NULL)
+    return 0;
+
+  int l = maxHeight(node->left);
+  int r = maxHeight(node->right);
+
+  return max(l, r) + 1;
+}
+
+int size(Node *node)
+{
+  if (node == NULL)
+    return 0;
+
+  return (size(node->left) + size(node->right) + 1);
+}
+
 int main()
 {
   root = createNode(5);
@@ -71,6 +115,15 @@ int main()
   cout << "postOrder Traversal = "
        << "\n";
   postOrderTraversal(root);
+
+  cout << "Level order Traversal = "
+       << "\n";
+  levelordertraversal(root);
+
+  cout << endl;
+
+  cout << "Height = " << maxHeight(root) << endl;
+  cout << "size = " << size(root) << endl;
 
   return 0;
 }
