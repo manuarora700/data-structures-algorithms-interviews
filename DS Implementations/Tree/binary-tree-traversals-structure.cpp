@@ -21,11 +21,35 @@ Node *createNode(int data)
   return newNode;
 }
 
+Node *insertNode(Node *node, int key)
+{
+  if (node == NULL)
+  {
+    node = createNode(key);
+    return node;
+  }
+  if (key < node->data)
+  {
+    node->left = insertNode(node->left, key);
+  }
+  else if (key > node->data)
+  {
+    node->right = insertNode(node->right, key);
+  }
+
+  return node;
+}
+
+void addNode(int key)
+{
+  root = insertNode(root, key);
+}
+
 void preOrderTraversal(Node *node)
 {
   if (node != NULL)
   {
-    cout << node->data;
+    cout << node->data << " ";
     preOrderTraversal(node->left);
     preOrderTraversal(node->right);
   }
@@ -36,7 +60,7 @@ void inOrderTraversal(Node *node)
   if (node != NULL)
   {
     inOrderTraversal(node->left);
-    cout << node->data;
+    cout << node->data << " ";
     inOrderTraversal(node->right);
   }
 }
@@ -47,7 +71,7 @@ void postOrderTraversal(Node *node)
   {
     postOrderTraversal(node->left);
     postOrderTraversal(node->right);
-    cout << node->data;
+    cout << node->data << " ";
   }
 }
 
@@ -95,26 +119,69 @@ int size(Node *node)
   return (size(node->left) + size(node->right) + 1);
 }
 
+Node *searchKey(Node *node, int key)
+{
+  if (node == NULL || node->data == key)
+  {
+    return node;
+  }
+  if (key < node->data)
+  {
+    return searchKey(node->left, key);
+  }
+  else
+  {
+    return searchKey(node->right, key);
+  }
+}
+
+void search(int key)
+{
+  Node *node = searchKey(root, key);
+  if (node != NULL)
+  {
+    cout << "Key found : " << key << endl;
+  }
+  else
+  {
+    cout << "Not found \n";
+  }
+}
+
 int main()
 {
-  root = createNode(5);
-  root->left = createNode(6);
-  root->right = createNode(7);
-  root->left->left = createNode(4);
-  root->left->right = createNode(3);
-  root->right->left = createNode(2);
+
+  int n;
+  cin >> n;
+
+  for (int i = 0; i < n; i++)
+  {
+    int ele;
+    cin >> ele;
+    addNode(ele);
+  }
+
+  // root = createNode(5);
+  // root->left = createNode(6);
+  // root->right = createNode(7);
+  // root->left->left = createNode(4);
+  // root->left->right = createNode(3);
+  // root->right->left = createNode(2);
 
   cout << "Preorder Traversal = "
        << "\n";
   preOrderTraversal(root);
+  cout << endl;
 
   cout << "inOrder Traversal = "
        << "\n";
   inOrderTraversal(root);
+  cout << endl;
 
   cout << "postOrder Traversal = "
        << "\n";
   postOrderTraversal(root);
+  cout << endl;
 
   cout << "Level order Traversal = "
        << "\n";
@@ -124,6 +191,10 @@ int main()
 
   cout << "Height = " << maxHeight(root) << endl;
   cout << "size = " << size(root) << endl;
+
+  cout << "Search 25: \n";
+  search(25);
+  cout << endl;
 
   return 0;
 }
