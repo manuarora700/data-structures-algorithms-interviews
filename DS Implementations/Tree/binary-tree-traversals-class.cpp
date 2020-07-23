@@ -93,6 +93,68 @@ public:
 
     return (size(node->left) + size(node->right) + 1);
   }
+
+  Node *createNode(int data)
+  {
+    Node *newNode = (Node *)malloc(sizeof(Node));
+    newNode->data = data;
+    newNode->left = NULL;
+    newNode->right = NULL;
+
+    return newNode;
+  }
+  Node *insertNode(Node *node, int key)
+  {
+    if (node == NULL)
+    {
+      node = createNode(key);
+      return node;
+    }
+    if (key < node->data)
+    {
+      node->left = insertNode(node->left, key);
+    }
+    else if (key > node->data)
+    {
+      node->right = insertNode(node->right, key);
+    }
+
+    return node;
+  }
+
+  void addNode(int key)
+  {
+    root = insertNode(root, key);
+  }
+
+  Node *searchKey(Node *node, int key)
+  {
+    if (node == NULL || node->data == key)
+    {
+      return node;
+    }
+    if (key < node->data)
+    {
+      return searchKey(node->left, key);
+    }
+    else
+    {
+      return searchKey(node->right, key);
+    }
+  }
+
+  void search(int key)
+  {
+    Node *node = searchKey(root, key);
+    if (node != NULL)
+    {
+      cout << "Key found : " << key << endl;
+    }
+    else
+    {
+      cout << "Not found \n";
+    }
+  }
 };
 
 int main()
