@@ -29,6 +29,26 @@ public:
       preOrderTraversal(node->right);
     }
   }
+
+  void inOrderTraversal(Node *node)
+  {
+    if (node != NULL)
+    {
+      inOrderTraversal(node->left);
+      cout << node->data;
+      inOrderTraversal(node->right);
+    }
+  }
+
+  void postOrderTraversal(Node *node)
+  {
+    if (node != NULL)
+    {
+      postOrderTraversal(node->left);
+      postOrderTraversal(node->right);
+      cout << node->data;
+    }
+  }
 };
 
 int main()
@@ -46,4 +66,10 @@ int main()
 
   cout << "Preeorder traversal is = \n";
   bt.preOrderTraversal(root);
+
+  cout << "Inorder traversal is = \n";
+  bt.inOrderTraversal(root);
+
+  cout << "postorder traversal is = \n";
+  bt.postOrderTraversal(root);
 }
