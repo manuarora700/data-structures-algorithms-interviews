@@ -31,6 +31,26 @@ void preOrderTraversal(Node *node)
   }
 }
 
+void inOrderTraversal(Node *node)
+{
+  if (node != NULL)
+  {
+    inOrderTraversal(node->left);
+    cout << node->data;
+    inOrderTraversal(node->right);
+  }
+}
+
+void postOrderTraversal(Node *node)
+{
+  if (node != NULL)
+  {
+    postOrderTraversal(node->left);
+    postOrderTraversal(node->right);
+    cout << node->data;
+  }
+}
+
 int main()
 {
   root = createNode(5);
@@ -42,7 +62,15 @@ int main()
 
   cout << "Preorder Traversal = "
        << "\n";
-
   preOrderTraversal(root);
+
+  cout << "inOrder Traversal = "
+       << "\n";
+  inOrderTraversal(root);
+
+  cout << "postOrder Traversal = "
+       << "\n";
+  postOrderTraversal(root);
+
   return 0;
 }
