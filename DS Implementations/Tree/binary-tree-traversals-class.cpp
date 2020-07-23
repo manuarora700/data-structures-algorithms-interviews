@@ -74,6 +74,25 @@ public:
       }
     }
   }
+
+  int maxHeight(Node *node)
+  {
+    if (node == NULL)
+      return 0;
+
+    int l = maxHeight(node->left);
+    int r = maxHeight(node->right);
+
+    return max(l, r) + 1;
+  }
+
+  int size(Node *node)
+  {
+    if (node == NULL)
+      return 0;
+
+    return (size(node->left) + size(node->right) + 1);
+  }
 };
 
 int main()
@@ -100,4 +119,10 @@ int main()
 
   cout << "Level order traversal is = \n";
   bt.levelordertraversal(root);
+
+  cout << endl;
+
+  cout << "Height : " << bt.maxHeight(root) << endl;
+
+  cout << "Size : " << bt.size(root) << endl;
 }
