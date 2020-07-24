@@ -62,6 +62,86 @@ void inorder(Node *node)
   }
 }
 
+Node *searchKey(Node *node, int key)
+{
+  if (node == NULL || node->data == key)
+  {
+    return node;
+  }
+  if (key < node->data)
+  {
+    return searchKey(node->left, key);
+  }
+  else
+  {
+    return searchKey(node->right, key);
+  }
+}
+
+void search(int key)
+{
+  Node *node = searchKey(root, key);
+  if (node != NULL)
+  {
+    cout << "Key found : " << key << endl;
+  }
+  else
+  {
+    cout << "Not found \n";
+  }
+}
+int minimumValue(Node *node)
+{
+  int minValue = node->data;
+  while (node->left != NULL)
+  {
+    minValue = node->left->data;
+    node = node->left;
+  }
+
+  return minValue;
+}
+
+Node *deleteNodeRec(Node *node, int key)
+{
+  if (node == NULL)
+  {
+    return node;
+  }
+
+  if (key < node->data)
+  {
+    node->left = deleteNodeRec(node->left, key);
+  }
+  else if (key > node->data)
+  {
+    node->right = deleteNodeRec(node->right, key);
+  }
+  else
+  {
+    // Key found
+    // Check single child or not
+    if (node->left == NULL)
+    {
+      return node->right;
+    }
+    else if (node->right == NULL)
+    {
+      return node->left;
+    }
+
+    // Both child
+    node->data = minimumValue(node->right);
+    node->right = deleteNodeRec(node->right, node->data);
+  }
+
+  return node;
+}
+void deleteNode(int key)
+{
+  root = deleteNodeRec(root, key);
+}
+
 int main()
 {
   int n;
@@ -79,6 +159,19 @@ int main()
   cout << endl;
   cout << "Inorder: \n";
   inorder(root);
+  cout << endl;
 
+  cout << "Search 60: \n";
+  search(60);
+  cout << endl;
+
+  deleteNode(60);
+
+  cout << "Search 62: \n";
+  search(60);
+  cout << endl;
+
+  inorder(root);
+  cout << endl;
   return 0;
 }
