@@ -63,6 +63,44 @@ public:
   {
     root = insertNode(root, key);
   }
+
+  int maximumVal(Node *node)
+  {
+    int maxValue = node->data;
+    while (node->right != NULL)
+    {
+      maxValue = node->right->data;
+      node = node->right;
+    }
+    return maxValue;
+  }
+
+  Node *deleteNodeRec(Node *node, int key)
+  {
+    if (node == NULL)
+    {
+      return node;
+    }
+    if (key < node->data)
+    {
+      node->left = deleteNodeRec(node->left, key);
+    }
+    else if (key > node->data)
+    {
+      node->right = deleteNodeRec(node->right, key);
+    }
+    else
+    {
+      if (node->left == NULL)
+        return node->right;
+      else if (node->right == NULL)
+        return node->left;
+
+      node->data = maximumVal(node->left);
+      node->left = deleteNodeRec(node->left, node->data);
+      return node;
+    }
+  }
 };
 
 int main()
