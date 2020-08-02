@@ -17,7 +17,8 @@ void rabin_karp(string T, string P, int d, int q)
   int n = T.length();
   int m = P.length();
 
-  int h = (int)pow(d, m - 1);
+  int h = pow((int)d, (int)(m - 1)) + 1;
+  cout << h;
   int p = 0;
   int t[n - m + 1];
   t[0] = 0;
@@ -38,7 +39,7 @@ void rabin_karp(string T, string P, int d, int q)
     }
     if (s < n - m)
     {
-      t[s + 1] = (d * (t[s] - ((T[s] - 'a') * h) + T[s + m] - 'a')) % q;
+      t[s + 1] = (d * (t[s] - (T[s] - 'a') * h) + (T[s + m] - 'a')) % q;
     }
   }
 }
