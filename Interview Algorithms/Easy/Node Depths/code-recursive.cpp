@@ -1,4 +1,4 @@
-// Time: O(n) | space: O(n)
+// Time: O(n) | space: O(h)
 
 #include <bits/stdc++.h>
 
@@ -67,6 +67,17 @@ public:
   }
 };
 
+// recursive approach
+int nodeDepths(Node *root, int depth = 0)
+{
+  // Base case
+
+  if (!root)
+    return 0;
+
+  return depth + nodeDepths(root->left, depth + 1) + nodeDepths(root->right, depth + 1);
+}
+
 int main()
 {
   BST bst;
@@ -87,4 +98,6 @@ int main()
   cout << "inorder = \n";
   bst.inorder(bst.root);
   cout << endl;
+
+  cout << "Sum of depths: " << nodeDepths(bst.root);
 }

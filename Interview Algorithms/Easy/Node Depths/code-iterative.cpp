@@ -1,4 +1,4 @@
-// Time: O(n) | space: O(n)
+// Time: O(n) | space: O(h)
 
 #include <bits/stdc++.h>
 
