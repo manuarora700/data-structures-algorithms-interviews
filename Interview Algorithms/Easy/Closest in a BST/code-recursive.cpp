@@ -73,13 +73,13 @@ int findClosestValueInBstHelper(Node *root, int target, int closest)
   {
     return closest;
   }
-  if (abs(target - closest) > abs(target - root->value))
+  if (abs(target - closest) > abs(target - root->data))
   {
-    closest = root->value;
+    closest = root->data;
   }
-  if (target < root->value)
+  if (target < root->data)
     return findClosestValueInBstHelper(root->left, target, closest);
-  else if (target > root->value)
+  else if (target > root->data)
   {
     return findClosestValueInBstHelper(root->right, target, closest);
   }
