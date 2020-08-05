@@ -26,7 +26,7 @@ public:
   {
     if (node != NULL)
     {
-      cout << node->data;
+      cout << node->data << " ";
       preOrderTraversal(node->left);
       preOrderTraversal(node->right);
     }
@@ -36,7 +36,7 @@ public:
     if (node != NULL)
     {
       inorder(node->left);
-      cout << node->data;
+      cout << node->data << " ";
 
       inorder(node->right);
     }

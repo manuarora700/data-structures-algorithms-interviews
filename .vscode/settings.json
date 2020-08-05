@@ -9,6 +9,13 @@
     "unordered_set": "cpp",
     "vector": "cpp",
     "bitset": "cpp",
-    "iostream": "cpp"
+    "iostream": "cpp",
+    "ratio": "cpp",
+    "system_error": "cpp",
+    "array": "cpp",
+    "functional": "cpp",
+    "tuple": "cpp",
+    "type_traits": "cpp",
+    "utility": "cpp"
   }
 }
