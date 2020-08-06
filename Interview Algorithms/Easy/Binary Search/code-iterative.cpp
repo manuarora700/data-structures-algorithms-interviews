@@ -2,7 +2,7 @@
 using namespace std;
 int binarySearch(vector<int> array, int target);
 int binarySearchHelper(vector<int> array, int target, int left, int right);
-// O(log(n)) time | O(log(n)) space
+// O(log(n)) time | O(1) space
 int binarySearch(vector<int> array, int target)
 {
   return binarySearchHelper(array, target, 0, array.size() - 1);
