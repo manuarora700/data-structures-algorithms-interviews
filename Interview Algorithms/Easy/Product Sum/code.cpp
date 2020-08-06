@@ -1,3 +1,6 @@
+// Time: O(n), n are total number of elements
+// Space: O(max_depth)
+
 #include <bits/stdc++.h>
 #include <any>
 
