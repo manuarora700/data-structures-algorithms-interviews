@@ -89,7 +89,8 @@ void branchSum(Node *root)
   vector<int> sums;
   calcBranchSum(root, 0, sums);
 
-  cout << "Sums Array : " for (int i = 0; i < sums.size(); i++)
+  cout << "Sums Array : ";
+  for (int i = 0; i < sums.size(); i++)
   {
     cout << sums[i] << " ";
   }

@@ -1,5 +1,5 @@
-// Average: O(log(n)) time | O(Log(n)) space
-// Worst: O(n) time | O(n) space
+// Average: O(log(n)) time | O(Log(1)) space
+// Worst: O(n) time | O(1) space
 #include <bits/stdc++.h>
 
 using namespace std;
