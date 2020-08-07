@@ -12,7 +12,7 @@ vector<int> selectionSort(vector<int> array)
   int startIdx = 0;
   while (startIdx < array.size() - 1)
   {
-    int smallestIdx = i;
+    int smallestIdx = 0;
 
     for (int i = startIdx + 1; i < array.size(); i++)
     {
