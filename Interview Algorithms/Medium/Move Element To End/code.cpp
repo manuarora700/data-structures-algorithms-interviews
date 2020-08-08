@@ -1,3 +1,5 @@
+// Time: O(n) | Space: O(1)s
+
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -9,14 +11,12 @@ vector<int> moveElementToEnd(vector<int> &arr, int target)
 
   while (start < end)
   {
-    // cout << "While itni baar chala\n";
-    while (start < end && arr[end] == target)
+    while (start < end && arr[end] == target) // imp stat start < end
     {
       end--;
     }
     if (arr[start] == target)
     {
-      // cout << "Else if me agaye\n";
       swap(arr[start], arr[end]);
     }
     start++;
