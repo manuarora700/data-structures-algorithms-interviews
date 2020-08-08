@@ -15,7 +15,7 @@ vector<vector<int>> threeNumberSum(vector<int> array, int target)
     int left = i + 1;
     int right = array.size() - 1;
 
-    while (eft < right)
+    while (left < right)
     {
       int currentSum = array[i] + array[left] + array[right];
 
