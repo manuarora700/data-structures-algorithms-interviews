@@ -21,7 +21,7 @@ void invertBinaryTree(BT *tree)
   if (tree == NULL)
     return;
 
-  swapLeftRight(current);
+  swapLeftRight(tree);
   invertBinaryTree(tree->left);
   invertBinaryTree(tree->right);
 }
