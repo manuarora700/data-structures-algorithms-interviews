@@ -58,4 +58,5 @@ vector<int> postOrderTraverse(BST *tree, vector<int> array)
     array = postOrderTraverse(tree->right, array);
   }
   array.push_back(tree->value);
-  return
+  return array;
+}
