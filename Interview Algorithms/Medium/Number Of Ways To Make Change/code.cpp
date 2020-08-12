@@ -18,4 +18,5 @@ int numberOfWaysToMakeChange(vector<int> denominations, int targetAmount)
       }
     }
   }
+  return ways[targetAmount];
 }
