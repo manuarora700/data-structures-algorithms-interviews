@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 
 using namespace std;
+
 void traverseNode(int i, int j, vector<vector<int>> matrix,
                   vector<vector<int>> *visited, vector<int> *sizes);
 vector<vector<int>> getUnvisitedNeighbors(int i, int j,
@@ -77,4 +78,9 @@ vector<vector<int>> getUnvisitedNeighbours(int i, int j, vector<vector<int>> mat
     unvisitedNeighbours.push_back({i, j + 1});
   }
   return unvisitedNeighbours;
+}
+
+int main()
+{
+  return 0;
 }
