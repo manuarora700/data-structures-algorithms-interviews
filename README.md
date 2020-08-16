@@ -1,4 +1,4 @@
-<h1 align="center">Interview Preparation</h1>
+<h1 align="center">⚡ Coding Interview Preparation ⚡</h1>
 
 <div align="center">
 
@@ -21,6 +21,6 @@ My coding solutions on AlgoExpert, LeetCode, FreeCodeCamp, Educative(Coding Pate
 - ⚫️ Very Hard
 - 🌟 Extremely Hard
 
-# TODO
+# ⚡ TODO
 
 👨‍💻 Convert into a React based web app for personal revision, Inbuilt hack IDE to test cpp code on the go, categorize by Difficulty, Tags and modules.
