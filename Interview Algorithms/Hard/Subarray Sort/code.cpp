@@ -38,5 +38,5 @@ bool isOutOfOrder(int i, int num, vector<int> arr)
   if (i == arr.size() - 1)
     return num < arr[i - 1];
 
-  return num > arr[i + 1] || num < arr[i - 1]
+  return num > arr[i + 1] || num < arr[i - 1];
 }
