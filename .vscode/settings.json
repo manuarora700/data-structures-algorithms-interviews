@@ -64,6 +64,6 @@
     "typeinfo": "cpp",
     "valarray": "cpp"
   },
-  "code-runner.runInTerminal": true,
+
   "C_Cpp.errorSquiggles": "Disabled"
 }
