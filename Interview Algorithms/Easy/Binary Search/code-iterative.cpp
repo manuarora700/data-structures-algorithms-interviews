@@ -1,4 +1,6 @@
+#include <iostream>
 #include <vector>
+
 using namespace std;
 int binarySearch(vector<int> array, int target);
 int binarySearchHelper(vector<int> array, int target, int left, int right);
@@ -27,4 +29,12 @@ int binarySearchHelper(vector<int> array, int target, int left, int right)
     }
   }
   return -1;
+}
+
+int main()
+{
+  vector<int> array = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+  int target = 5;
+  cout << binarySearch(array, target) << endl;
+  return 0;
 }
